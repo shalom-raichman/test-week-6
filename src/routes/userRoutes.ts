@@ -3,7 +3,7 @@ import { createStudent, createTeacher } from "../controllers/userController"
 
 const userRouter = Router()
 
-userRouter.post("/techer", createTeacher)
+userRouter.post("/teacher", createTeacher)
 
 userRouter.post("/student", createStudent)
 
