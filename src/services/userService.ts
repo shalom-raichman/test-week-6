@@ -4,10 +4,12 @@ import newTeacherResDTO from "../DTO/newTeacherResDTO"
 import classModel, { IMyClass } from "../models/classModel"
 import userModel, { IUser } from "../models/userModel"
 import { roleEnum } from "../enums/roleEnum"
+import bcrypt from "bcrypt"
 
 export const createTeacherService = async (newTeacher: newTeacherDTO): Promise<newTeacherResDTO> => {
     try {
-        if(newTeacher.role != roleEnum.teacher) throw new Error("try to use the rigth EP")
+        if (newTeacher.role != roleEnum.teacher) throw new Error("try to use the rigth EP")
+        newTeacher.password = await bcrypt.hash(newTeacher.password, 10)
         const dbTecher = new userModel(newTeacher)
         await dbTecher.save()
         const newClass = {
@@ -28,7 +30,8 @@ export const createTeacherService = async (newTeacher: newTeacherDTO): Promise<n
 
 export const createStudentService = async (newStudent: newTeacherDTO): Promise<IUser> => {
     try {
-        if(newStudent.role != roleEnum.student) throw new Error("try to use the rigth EP")
+        if (newStudent.role != roleEnum.student) throw new Error("try to use the rigth EP")
+        newStudent.password = await bcrypt.hash(newStudent.password, 10)
         const dbStudent = new userModel(newStudent)
         await dbStudent.save()
         await classModel.findOneAndUpdate(
