@@ -1,4 +1,4 @@
 export const enum roleEnum {
-    student,
-    teacher
+    student = "student",
+    teacher = "teacher"
 }
