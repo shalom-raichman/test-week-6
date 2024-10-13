@@ -4,7 +4,6 @@ import { IClass } from "./classModel"
 
 
 export interface ITest extends Document {
-    _id: Types.ObjectId
     test_name: string
     score: number
     student_id: Types.ObjectId | IUser

@@ -3,7 +3,6 @@ import { IUser } from "./userModel"
 import { ITest } from "./testModel"
 
 export interface IClass extends Document {
-    _id: Types.ObjectId
     class_name: string
     teacher_id: Types.ObjectId | IUser
     students_id: Types.ObjectId[] | IUser[]
