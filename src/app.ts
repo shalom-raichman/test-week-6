@@ -6,6 +6,7 @@ import connectDB from "./config/db"
 import authRouter from "./routes/authRouter"
 import testRouter from "./routes/testRouter"
 import classRouter from "./routes/classRouter"
+import cookieParser from "cookie-parser"
 
 dotenv.config()
 
@@ -14,6 +15,7 @@ const PORT = process.env.PORT || 1415
 
 // Middleware
 app.use(express.json())
+app.use(cookieParser())
 
 connectDB()
 

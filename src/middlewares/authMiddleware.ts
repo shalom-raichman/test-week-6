@@ -11,10 +11,8 @@ export const onlyTeachers = async (
         // get the token from cookie
         const token = req.cookies.token
         // verify
-        const userData: IUser = await jwt.verify(token, process.env.TOKEN_SECRET!) as IUser
-        if (userData.role != roleEnum.teacher) {
-            res.status(403).json({ msg: "shtzchhhhhhhhh...." })
-        }
+        const userData = await jwt.verify(token, process.env.TOKEN_SECRET!) as IUser
+        if (userData.role != roleEnum.teacher) throw new Error("not allowed")
         // add the user to the req obj
         //@ts-ignore
         req.user = userData
@@ -23,7 +21,7 @@ export const onlyTeachers = async (
     } catch (err) {
         console.log(err)
         res.status(401).json({
-            msg: "not aloud",
+            msg: "not allowed",
         })
     }
 }
@@ -33,7 +31,7 @@ export const onlyUsers = async (req: Request, res: Response, next: NextFunction)
         // get the token from cookie
         const token = req.cookies.token
         // verify
-        const userData = await jwt.verify(token, process.env.TOKEN_SECRET!)
+        const userData = await jwt.verify(token, process.env.TOKEN_SECRET!) as IUser
         // add the user to the req obj
         //@ts-ignore
         req.user = userData
@@ -42,7 +40,7 @@ export const onlyUsers = async (req: Request, res: Response, next: NextFunction)
     } catch (err) {
         console.log(err)
         res.status(401).json({
-            msg: "not aloud",
+            msg: "not allowed",
         })
     }
 }
