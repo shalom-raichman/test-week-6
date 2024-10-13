@@ -1,20 +1,20 @@
-import { Request, Response, NextFunction } from "express";
-import Post, { IPost } from "../models/postModel";
-import User from "../models/userModel";
+import { Request, Response, NextFunction } from "express"
+import Post, { IPost } from "../models/postModel"
+import User from "../models/userModel"
 
 // Create a new post
 export const createPost = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { }
 
 // Delete a post
 export const deletePost = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { }
 
 
 
@@ -23,7 +23,7 @@ export const getPosts = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { }
 
 
 // Get a single post by ID
@@ -31,7 +31,7 @@ export const getPost = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { }
 
 
 // Update a post
@@ -39,7 +39,7 @@ export const updatePost = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { }
 
 
 // Add a comment to a post
@@ -47,6 +47,6 @@ export const addComment = async (
   req: Request,
   res: Response,
   next: NextFunction
-): Promise<void> => {};
+): Promise<void> => { };
 
 

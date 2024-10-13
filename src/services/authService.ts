@@ -1,10 +1,10 @@
 import jwt from "jsonwebtoken"
-import { IUser } from "../models/userModel"
+import userModel, { IUser } from "../models/userModel"
 import bcrypt from "bcrypt"
 
 export const loginService = async (user: IUser): Promise<string> => {
     try {
-        const dbUser = await UserModel.findOne({ user_name: user.username })
+        const dbUser: IUser | null = await userModel.findOne({ user_name: user.user_name })
 
         if (!dbUser) throw new Error("user not found")
 

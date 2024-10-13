@@ -1,12 +1,14 @@
 import { Router } from "express"
-import { createUser, getUser, getUsers } from "../controllers/userController"
+import { createStudent, createTeacher } from "../controllers/userController"
 
 const userRouter = Router()
 
-userRouter.post("/", createUser)
+userRouter.post("/techer", createTeacher)
 
-userRouter.get("/", getUsers)
+userRouter.post("/student", createStudent)
 
-userRouter.get("/:username", getUser)
+// userRouter.get("/", getUsers) optional
+
+// userRouter.get("/:username", getUser) optional
 
 export default userRouter

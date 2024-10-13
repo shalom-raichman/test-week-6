@@ -1,8 +1,8 @@
 import { Router } from "express"
 import { login, logout } from "../controllers/authController"
-import { onlySoldiersAndCommanders } from "../middlewares/authMiddlewares"
+import { onlyUsers } from "../middlewares/authMiddleware"
 
-export const router = Router()
+const authRouter = Router()
 
 /**
  * @swagger
@@ -34,7 +34,8 @@ export const router = Router()
  *       400:
  *         description: Bad request
  */
-router.post("/login", login)
+authRouter.post("/login", login)
 
-router.post("/logout", onlySoldiersAndCommanders, logout)
+authRouter.post("/logout", onlyUsers, logout)
 
+export default authRouter

@@ -1,14 +1,14 @@
 import { Router } from "express"
-import {  } from "../controllers/classController"
+import { getAllStudentsData, getClassAvarege } from "../controllers/classController"
 
 const classRouter = Router()
 
-classRouter.post("/", createClass)
+classRouter.get("/", getAllStudentsData)
 
-classRouter.get("/", getClasss)
+classRouter.get("/avarege", getClassAvarege)
 
-classRouter.get("/students", getAllClassStudents)
+// classRouter.get("/students", getAllClassStudents)
 
-classRouter.get("/:class_name", getClassByName)
+// classRouter.get("/:class_name", getClassByName)
 
 export default classRouter
