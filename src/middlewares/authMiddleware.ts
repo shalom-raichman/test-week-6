@@ -16,7 +16,8 @@ export const onlyTeachers = async (
             res.status(403).json({ msg: "shtzchhhhhhhhh...." })
         }
         // add the user to the req obj
-        // req.user = userData
+        //@ts-ignore
+        req.user = userData
         // call next
         next()
     } catch (err) {
@@ -34,7 +35,8 @@ export const onlyUsers = async (req: Request, res: Response, next: NextFunction)
         // verify
         const userData = await jwt.verify(token, process.env.TOKEN_SECRET!)
         // add the user to the req obj
-        // req.user = userData
+        //@ts-ignore
+        req.user = userData
         // call next
         next()
     } catch (err) {
