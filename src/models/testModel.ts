@@ -1,13 +1,13 @@
 import mongoose, { Schema, Document, Types } from "mongoose"
 import userModel, { IUser } from "./userModel"
-import { IClass } from "./classModel"
+import { IMyClass } from "./classModel"
 
 
 export interface ITest extends Document {
     test_name: string
     score: number
     student_id: Types.ObjectId | IUser
-    class_id: Types.ObjectId | IClass
+    class_id: Types.ObjectId | IMyClass
 }
 
 const TestSchema = new Schema<ITest>({

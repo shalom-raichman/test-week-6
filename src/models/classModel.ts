@@ -2,21 +2,21 @@ import mongoose, { Schema, Document, Types } from "mongoose"
 import { IUser } from "./userModel"
 import { ITest } from "./testModel"
 
-export interface IClass extends Document {
+export interface IMyClass extends Document {
     class_name: string
     teacher_id: Types.ObjectId | IUser
-    students_id: Types.ObjectId[] | IUser[]
-    tests_id: Types.ObjectId[] | ITest[]
+    students_id?: Types.ObjectId[] | IUser[]
+    tests_id?: Types.ObjectId[] | ITest[]
 }
 
-const ClassSchema = new Schema<IClass>({
+const ClassSchema = new Schema<IMyClass>({
     class_name: {
         type: String,
         minlength: [3, "username is to short!"],
         maxlength: [30, "username is to long!"],
         required: [true, "username must be provided"],
         unique: true
-      },
+    },
     teacher_id: {
         type: Types.ObjectId,
         ref: "User",
@@ -35,4 +35,4 @@ const ClassSchema = new Schema<IClass>({
     }
 })
 
-export default mongoose.model<IClass>("Class", ClassSchema)
+export default mongoose.model<IMyClass>("Class", ClassSchema)
