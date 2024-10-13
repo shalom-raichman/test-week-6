@@ -5,7 +5,7 @@ const classRouter = Router()
 
 classRouter.get("/:class_name", getAllStudentsData)
 
-classRouter.get("/avarege", getClassAvarege)
+classRouter.get("/avarege/:class_name", getClassAvarege)
 
 // classRouter.get("/students", getAllClassStudents)
 

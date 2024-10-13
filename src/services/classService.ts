@@ -1,5 +1,4 @@
 import classModel, { IMyClass } from "../models/classModel"
-import { IUser } from "../models/userModel"
 
 export const getAllStudentsDataSrvice = async (className: string): Promise<any> => {
     try {
@@ -10,3 +9,23 @@ export const getAllStudentsDataSrvice = async (className: string): Promise<any> 
         throw err
     }
 }
+
+// export const getClassAvarageSrvice = async (className: string): Promise<any> => {
+//     try {
+//         const data = await classModel.aggregate([
+//             {
+//                 $group:
+//                   {
+//                     _id: "$tests_id",
+//                     avgAmount: { $avg: { $multiply: [ "$price", "$quantity" ] } },
+//                     avgQuantity: { $avg: "$quantity" }
+//                   }
+//               }
+//         ])
+//         return data
+//     } catch (err) {
+//         console.log(err)
+//         throw err
+//     }
+// }
+// tring to aggregate avarage
