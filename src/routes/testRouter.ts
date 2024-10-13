@@ -1,12 +1,13 @@
 import { Router } from "express"
 import { createTest, getTestByStudentName, updateTest } from "../controllers/testController"
+import { onlyTeachers, onlyUsers } from "../middlewares/authMiddleware"
 
 const testRouter = Router()
 
-testRouter.post("/", createTest)
+testRouter.post("/", onlyTeachers, createTest)
 
-testRouter.patch("/update", updateTest)
+testRouter.patch("/update", onlyTeachers, updateTest)
 
-testRouter.get("/:student_name", getTestByStudentName)
+testRouter.get("/:student_name", onlyUsers, getTestByStudentName)
 
 export default testRouter
