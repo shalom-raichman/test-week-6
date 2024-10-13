@@ -1,8 +1,8 @@
-const router = require("express").Router();
-const { login, logout } = require("../controllers/authController");
-const {
-    onlySoldiersAndCommanders,
-} = require("../middlewares/aouthMiddlewares");
+import { Router } from "express"
+import { login, logout } from "../controllers/authController"
+import { onlySoldiersAndCommanders } from "../middlewares/authMiddlewares"
+
+export const router = Router()
 
 /**
  * @swagger
@@ -34,8 +34,7 @@ const {
  *       400:
  *         description: Bad request
  */
-router.post("/login", login);
+router.post("/login", login)
 
-router.post("/logout", onlySoldiersAndCommanders, logout);
+router.post("/logout", onlySoldiersAndCommanders, logout)
 
-module.exports = router;

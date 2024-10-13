@@ -1,6 +1,5 @@
-import { Request } from "express"
+import { Request, Response } from "express"
 import { loginService } from "../services/authService"
-import { Response } from "swagger-jsdoc"
 
 export const login = async (req: Request, res: Response): Promise<void> => {
     try {
