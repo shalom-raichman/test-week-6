@@ -12,3 +12,4 @@ userRouter.post("/student", createStudent)
 // userRouter.get("/:username", getUser) optional
 
 export default userRouter
+
