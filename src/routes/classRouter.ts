@@ -3,7 +3,7 @@ import { getAllStudentsData, getClassAvarege } from "../controllers/classControl
 
 const classRouter = Router()
 
-classRouter.get("/", getAllStudentsData)
+classRouter.get("/:class_name", getAllStudentsData)
 
 classRouter.get("/avarege", getClassAvarege)
 
